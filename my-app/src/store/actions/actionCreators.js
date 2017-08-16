@@ -14,7 +14,7 @@ export const fetchCategories = () => (dispatch) => {
 
 //Assets
 export const fetchAssetsByCategory = (categoryId) => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/category/' + categoryId + '/assets/2')
+    fetch('http://online.smartsoft.ro:3333/api/vod/category/' + categoryId + '/assets')
         .then(results => results.json())
         .then(resultsJson => {
             if (resultsJson.data.results) {

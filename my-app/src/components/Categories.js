@@ -15,7 +15,7 @@ class Category extends React.Component {
         return <li>
             <div>
                 <Link to={`/movies/${this.props.category.id}`}>
-                    {this.props.category.name}
+                    {this.props.category.name}  {this.props.category.id}
                     </Link>
             </div>
         </li>
