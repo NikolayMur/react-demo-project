@@ -1,0 +1,45 @@
+.asset {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    display: inline-flex;
+    width: 483px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.image-content {
+    width: 185px;
+    height: 278px;
+}
+
+.info {
+    text-align: left;
+    width: 298px;
+    height: 278px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px 16px 16px 16px;
+}
+
+.overview {
+    height: 85px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    color: #4d4d4d;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    margin-top: 30px;
+}
+
+.view-more {
+    border-top: 1px solid #e3e3e3;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-top: 16px;
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+}

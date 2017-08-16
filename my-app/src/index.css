@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+}
+
+.menu-item{
+  padding: 5px;
+}
+
+.asset-container{
+text-align: center;
+}
+
+.category-list{
+  list-style-type: none;
+}

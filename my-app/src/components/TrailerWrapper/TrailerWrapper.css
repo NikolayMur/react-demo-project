@@ -1,0 +1,59 @@
+.ReactModalPortal {
+    position: relative;
+    z-index: 2;
+}
+
+.ReactModalPortal .close-button {
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.ReactModalPortal Iframe {
+    margin-top: 30px
+}
+
+.ReactModalPortal .navigate-button {
+    height: 454px;
+    vertical-align: bottom;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.arrow {
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    height: 76px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 40px;
+    z-index: 21;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    display: none;
+    font-size: 24px;
+}
+
+.arrow:hover {
+    display: block;
+    cursor: pointer;
+}
+
+.arrow-right {
+    right: 30px;
+}
+
+.arrow-left {
+    left: 0px;
+}
+
+Iframe:hover ~ div {
+    display: block;
+}

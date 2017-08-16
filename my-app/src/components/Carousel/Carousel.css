@@ -1,0 +1,25 @@
+.carousel-container {
+    border: 1px solid gray;
+    display: flex;
+}
+
+.carousel-viewport {
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: inline-block;
+}
+
+.carousel-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-nav {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.carousel-nav:focus {
+    /*border: 1px solid;*/
+}
