@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchPopularVideos} from '../store/actions/actionCreators';
+import {downloadPopularVideos} from '../store/actions/actionCreators';
 import Menu from './Menu'
 import Asset from './Asset/Asset';
 import Carousel from "./Carousel/Carousel";
@@ -29,6 +29,6 @@ export default connect(
         ownProps
     }),
     (dispatch) => ({
-        downloadPopularVideos: () => dispatch(fetchPopularVideos())
+        downloadPopularVideos: () => dispatch(downloadPopularVideos())
     })
 )(Home);

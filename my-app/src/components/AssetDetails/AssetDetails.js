@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import './AssetDetails.css';
-import {fetchAssetDetails, fetchVideosByAssetId} from '../../store/actions/actionCreators';
+import {downloadAssetDetails, downloadVideosByAssetId} from '../../store/actions/actionCreators';
 import TrailerWrapper from '../TrailerWrapper/TrailerWrapper';
 
 class AssetDetails extends React.Component {
@@ -79,7 +79,7 @@ export default connect(
         ownProps
     }),
     (dispatch) => ({
-        downloadDetails: (id) => dispatch(fetchAssetDetails(id)),
-        downloadTrailerss: (id) => dispatch(fetchVideosByAssetId(id))
+        downloadDetails: (id) => dispatch(downloadAssetDetails(id)),
+        downloadTrailerss: (id) => dispatch(downloadVideosByAssetId(id))
     })
 )(AssetDetails);

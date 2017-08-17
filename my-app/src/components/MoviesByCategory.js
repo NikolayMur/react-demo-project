@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchAssetsByCategory} from '../store/actions/actionCreators';
+import {downloadAssetsByCategory} from '../store/actions/actionCreators';
 import Menu from './Menu'
 import Asset from './Asset/Asset';
 
@@ -28,6 +28,6 @@ export default connect(
         ownProps
     }),
     (dispatch) => ({
-        downloadMoviesByCategory: (id) => dispatch(fetchAssetsByCategory(id))
+        downloadMoviesByCategory: (id) => dispatch(downloadAssetsByCategory(id))
     })
 )(MoviesByCategory);

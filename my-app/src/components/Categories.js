@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchCategories} from '../store/actions/actionCreators';
+import {downloadCategories} from '../store/actions/actionCreators';
 import Menu from './Menu';
 import {Link} from 'react-router';
 
@@ -45,6 +45,6 @@ export default connect(
         ownProps
     }),
     (dispatch) => ({
-        downloadCategories: () => dispatch(fetchCategories())
+        downloadCategories: () => dispatch(downloadCategories())
     })
 )(Categories);

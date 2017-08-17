@@ -1,94 +1,77 @@
+import {
+    assetDetailDownloadActionTypes,
+    categoriesDownloadActionTypes,
+    moviesByCategoryDownloadActionTypes,
+    popularVideoDownloadActionTypes,
+    trailersDownloadActionTypes
+} from '../../Constants';
 //Categories
-export const fetchCategories = () => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/category')
-        .then(results => results.json())
-        .then(resultsJson => {
-            if (resultsJson.data.genres) {
-                dispatch({type: 'LOAD_CATEGORIES', payload: resultsJson.data.genres});
-            }
-        })
-        .catch(err => {
-            throw err;
-        });
+export const downloadCategories = () => (dispatch) => {
+
+    const url = 'http://online.smartsoft.ro:3333/api/vod/category';
+
+    requestHandler(url, dispatch, categoriesDownloadActionTypes);
 }
 
 //Assets
-export const fetchAssetsByCategory = (categoryId) => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/category/' + categoryId + '/assets')
-        .then(results => results.json())
-        .then(resultsJson => {
-            if (resultsJson.data.results) {
-                dispatch({type: 'LOAD_MOVIES_BY_CATEGORY', payload: resultsJson.data.results});
-            }
-        })
-        .catch(err => {
-            throw err;
-        });
+export const downloadAssetsByCategory = (categoryId) => (dispatch) => {
+
+    const url = 'http://online.smartsoft.ro:3333/api/vod/category/' + categoryId + '/assets';
+
+    requestHandler(url, dispatch, moviesByCategoryDownloadActionTypes);
 }
 
-export const fetchAssetDetails = (assetId) => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/asset/' + assetId)
-        .then(results => results.json())
-        .then(resultsJson => {
-            if (resultsJson.data) {
-                dispatch({type: 'LOAD_ASSET_DETAIL', payload: resultsJson.data});
-            }
-        })
-        .catch(err => {
-            throw err;
-        });
-}
+export const downloadAssetDetails = (assetId) => (dispatch) => {
 
-export const searchAssets = (queryString) => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/search?q={' + queryString + '}')
-        .then(results => results.json())
-    // .then(resultsJson => {
-    //     if (resultsJson.data.genres) {
-    //         dispatch({type: 'LOAD_CATEGORIES', payload: resultsJson.data.genres});
-    //     }
-    // })
-    // .catch(err => {
-    //     throw err;
-    // });
+    const url = 'http://online.smartsoft.ro:3333/api/vod/asset/' + assetId;
+
+    requestHandler(url, dispatch, assetDetailDownloadActionTypes);
 }
 
 //Videos
-export const fetchVideosByAssetId = (assetId) => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/asset/' + assetId + '/videos')
+export const downloadVideosByAssetId = (assetId) => (dispatch) => {
+
+    const url = 'http://online.smartsoft.ro:3333/api/vod/asset/' + assetId + '/videos';
+
+    requestHandler(url, dispatch, trailersDownloadActionTypes);
+}
+
+export const downloadPopularVideos = () => (dispatch) => {
+
+    const url = 'http://online.smartsoft.ro:3333/api/vod/popular';
+
+    requestHandler(url, dispatch, popularVideoDownloadActionTypes);
+}
+
+//requestHandler
+function requestHandler(url, dispatch, setOfActionTypes) {
+    let responsePayload = null;
+    dispatch({type: setOfActionTypes.get});
+    fetch(url)
         .then(results => results.json())
         .then(resultsJson => {
-            if (resultsJson.data.results) {
-                dispatch({type: 'LOAD_TRAILERS', payload: resultsJson.data.results});
+            switch (setOfActionTypes) {
+                case assetDetailDownloadActionTypes:
+                    responsePayload = resultsJson.data;
+                    break;
+                case categoriesDownloadActionTypes:
+                    responsePayload = resultsJson.data.genres;
+                    break;
+                case moviesByCategoryDownloadActionTypes:
+                    responsePayload = resultsJson.data.results;
+                    break;
+                case popularVideoDownloadActionTypes:
+                    responsePayload = resultsJson.data;
+                    break;
+                case trailersDownloadActionTypes:
+                    responsePayload = resultsJson.data.results;
+                    break;
+            }
+            if (responsePayload) {
+                dispatch({type: setOfActionTypes.received, payload: responsePayload});
             }
         })
         .catch(err => {
-            throw err;
+            dispatch({type: setOfActionTypes.error});
         });
-}
-
-export const fetchPopularVideos = () => (dispatch) => {
-    fetch('http://online.smartsoft.ro:3333/api/vod/popular')
-        .then(results => results.json())
-        .then(resultsJson => {
-            if (resultsJson.data) {
-                dispatch({type: 'LOAD_POPULAR_VIDEO', payload: resultsJson.data});
-            }
-        })
-        .catch(err => {
-            throw err;
-        });
-}
-
-//Menu
-export const fetchMenu = () => (dispatch) => {
-    fetch(' http://online.smartsoft.ro:3333/api/static/menu')
-        .then(results => results.json())
-    // .then(resultsJson => {
-    //     if (resultsJson.data.genres) {
-    //         dispatch({type: 'LOAD_CATEGORIES', payload: resultsJson.data.genres});
-    //     }
-    // })
-    // .catch(err => {
-    //     throw err;
-    // });
 }
