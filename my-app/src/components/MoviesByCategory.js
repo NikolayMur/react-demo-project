@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {downloadAssetsByCategory} from '../store/actions/actionCreators';
-import Menu from './Menu'
 import Asset from './Asset/Asset';
 
 class MoviesByCategory extends React.Component {
@@ -13,7 +12,6 @@ class MoviesByCategory extends React.Component {
 
     render() {
         return <div>
-            <Menu/>
             <h1>MoviesByCategory page.</h1>
             <div className="asset-container">
                 {this.props.moviesByCategory.map(item => <Asset key={item.id} asset={item}/>)}

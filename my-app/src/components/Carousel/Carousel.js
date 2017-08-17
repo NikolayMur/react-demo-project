@@ -19,7 +19,6 @@ class Carousel extends React.Component {
     }
 
     render() {
-        console.log(this.props.child);
         return (
             <div className="carousel-container">
                 <button className="carousel-nav carousel-left-nav" onClick={this.handleLeftNav}>

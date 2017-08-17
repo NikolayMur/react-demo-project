@@ -38,10 +38,6 @@ class AssetDetails extends React.Component {
             backgroundImage: `url(${fullBackdropPath})`
         };
 
-        var posterStyle = {
-            backgroundImage: `url(${fullPosterPath})`
-        };
-
         return (
 
             <div className="detail-page-container">

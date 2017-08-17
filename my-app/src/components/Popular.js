@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {downloadPopularVideos} from '../store/actions/actionCreators';
-import Menu from './Menu'
 import Asset from './Asset/Asset';
 
 class Popular extends React.Component {
@@ -13,7 +12,6 @@ class Popular extends React.Component {
 
     render() {
         return <div>
-            <Menu/>
             <h1>Popular page.</h1>
             <div className="asset-container">
                 {this.props.popularVideos.map(item => <Asset key={item.id} asset={item}/>)}

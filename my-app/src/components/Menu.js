@@ -4,9 +4,10 @@ import {menuContent} from '../index';
 
 class Menu extends React.Component {
     render() {
+        console.log('class Menu extends React.Component');
         return (
             <div>
-                {menuContent.map((item) => <Link className="menu-item" to={item.route}
+                {menuContent.map((item) => <Link className="menu-item" to={item.route} href={item.route}
                                                  key={item.id}>{item.label}</Link>)}
             </div>
         );

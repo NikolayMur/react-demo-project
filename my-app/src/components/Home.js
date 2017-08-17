@@ -14,7 +14,6 @@ class Home extends React.Component {
 
     render() {
         return <div>
-            <Menu/>
             <h1>Home page.</h1>
             <Carousel>
                 {this.props.popularVideos.map(item => <Asset key={item.id} asset={item}/>)}
