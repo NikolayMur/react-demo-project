@@ -8,14 +8,11 @@ export default function trailersReducer(state = initialState, action) {
         case trailersDownloadActionTypes.get:
             //to do smth
             return state;
-            break;
         case trailersDownloadActionTypes.received:
             return action.payload;
-            break;
         case trailersDownloadActionTypes.error:
             //to do smth
             return state;
-            break;
         default:
             return state;
     }

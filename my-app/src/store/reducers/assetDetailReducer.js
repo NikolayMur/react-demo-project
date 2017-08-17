@@ -8,14 +8,11 @@ export default function assetDetailReducer(state = initialState, action) {
         case assetDetailDownloadActionTypes.get:
             //to do smth
             return state;
-            break;
         case assetDetailDownloadActionTypes.received:
             return action.payload;
-            break;
         case assetDetailDownloadActionTypes.error:
             //to do smth
             return state;
-            break;
         default:
             return state;
     }

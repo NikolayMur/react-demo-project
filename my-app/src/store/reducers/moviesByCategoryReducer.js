@@ -8,14 +8,11 @@ export default function moviesByCategoryReducer(state = initialState, action) {
         case moviesByCategoryDownloadActionTypes.get:
             //to do smth
             return state;
-            break;
         case moviesByCategoryDownloadActionTypes.received:
             return action.payload;
-            break;
         case moviesByCategoryDownloadActionTypes.error:
             //to do smth
             return state;
-            break;
         default:
             return state;
     }

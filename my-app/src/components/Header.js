@@ -5,7 +5,7 @@ import Menu from './Menu';
 class Header extends React.Component {
 
     render() {
-        return (<div>
+        return (<div className="header">
             <h1>Header</h1>
             <Menu/>
         </div>)

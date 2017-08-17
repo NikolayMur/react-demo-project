@@ -5,13 +5,8 @@ import './Asset.css';
 
 class Asset extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const fullPosterPath = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + this.props.asset.poster_path;
-        const fullBackdropPath = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + this.props.asset.backdrop_path;
         return (
             <div className="asset">
                 <div className="image-content">

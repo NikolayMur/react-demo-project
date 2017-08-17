@@ -8,14 +8,11 @@ export default function popularVideoReducer(state = initialState, action) {
         case popularVideoDownloadActionTypes.get:
             //to do smth
             return state;
-            break;
         case popularVideoDownloadActionTypes.received:
             return action.payload;
-            break;
         case popularVideoDownloadActionTypes.error:
             //to do smth
             return state;
-            break;
         default:
             return state;
     }

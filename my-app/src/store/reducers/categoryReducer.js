@@ -8,14 +8,11 @@ export default function categoryReducer(state = initialState, action) {
         case categoriesDownloadActionTypes.get:
             //to do smth
             return state;
-            break;
         case categoriesDownloadActionTypes.received:
             return action.payload;
-            break;
         case categoriesDownloadActionTypes.error:
             //to do smth
             return state;
-            break;
         default:
             return state;
     }
