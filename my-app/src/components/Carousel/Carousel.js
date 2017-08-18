@@ -10,26 +10,26 @@ class Carousel extends React.Component {
 
     handleLeftNav(e) {
         const {carouselViewport} = this.refs;
-        carouselViewport.scrollLeft -= 200;
+        carouselViewport.scrollLeft -= carouselViewport.scrollWidth/carouselViewport.childElementCount;
     }
 
     handleRightNav(e) {
         const {carouselViewport} = this.refs;
-        carouselViewport.scrollLeft += 200;
+        carouselViewport.scrollLeft += carouselViewport.scrollWidth/carouselViewport.childElementCount;
     }
 
     render() {
         return (
             <div className="carousel-container">
-                <button className="carousel-nav carousel-left-nav" onClick={this.handleLeftNav}>
+                <div className="carousel-nav carousel-left-nav" onClick={this.handleLeftNav}>
                     &#60;
-                </button>
+                </div>
                 <div className="carousel-viewport" ref='carouselViewport'>
                     {this.props.children}
                 </div>
-                <button className="carousel-nav carousel-right-nav" onClick={this.handleRightNav}>
+                <div className="carousel-nav carousel-right-nav" onClick={this.handleRightNav}>
                     &#62;
-                </button>
+                </div>
             </div>
         );
     }

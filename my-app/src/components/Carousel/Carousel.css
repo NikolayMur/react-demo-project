@@ -1,6 +1,7 @@
 .carousel-container {
     border: 1px solid gray;
     display: flex;
+    position: relative;
 }
 
 .carousel-viewport {
@@ -17,9 +18,38 @@
 
 .carousel-nav {
     cursor: pointer;
-    background-color: gray;
+    /*background-color: gray;*/
+
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    height: 76px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 40px;
+    z-index: 21;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    display: none;
+    font-size: 24px;
 }
 
-.carousel-nav:focus {
-    /*border: 1px solid;*/
+.carousel-nav:hover {
+    display: block;
+    cursor: pointer;
+}
+
+.carousel-container:hover .carousel-nav {
+    display: block;
+}
+
+.carousel-left-nav {
+    left: 0px;
+}
+
+.carousel-right-nav {
+    right: 0px;
 }
