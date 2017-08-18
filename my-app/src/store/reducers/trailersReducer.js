@@ -9,7 +9,9 @@ export default function trailersReducer(state = initialState, action) {
             //to do smth
             return state;
         case trailersDownloadActionTypes.received:
-            return action.payload;
+            const newState = [ ...state ];
+            newState[action.payload.id] = action.payload;
+            return  newState;
         case trailersDownloadActionTypes.error:
             //to do smth
             return state;

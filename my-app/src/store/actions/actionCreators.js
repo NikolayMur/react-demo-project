@@ -66,7 +66,7 @@ function requestHandler(url, dispatch, setOfActionTypes) {
                     responsePayload = resultsJson.data;
                     break;
                 case trailersDownloadActionTypes:
-                    responsePayload = resultsJson.data.results;
+                    responsePayload = resultsJson.data;
                     break;
             }
             if (responsePayload) {

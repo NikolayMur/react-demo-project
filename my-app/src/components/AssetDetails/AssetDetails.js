@@ -31,7 +31,9 @@ class AssetDetails extends React.Component {
             this.props.downloadDetails(this.props.params.id);
         }
 
-        this.props.downloadTrailerss(this.props.params.id);
+        if((!this.props.trailers)) {
+            this.props.downloadTrailerss(this.props.params.id);
+        }
     }
 
     render() {
@@ -77,7 +79,7 @@ class AssetDetails extends React.Component {
 export default connect(
     (state, ownProps) => ({
         assetDetails: state.assetDetailReducer[ownProps.params.id] ? state.assetDetailReducer[ownProps.params.id] : {},
-        trailers: state.trailersReducer,
+        trailers: state.trailersReducer[ownProps.params.id] ? state.trailersReducer[ownProps.params.id].results : null,
         ownProps
     }),
     (dispatch) => ({
