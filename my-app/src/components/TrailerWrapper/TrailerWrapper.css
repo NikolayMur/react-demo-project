@@ -54,6 +54,6 @@
     left: 0px;
 }
 
-Iframe:hover ~ div {
+span:hover ~ div {
     display: block;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Modal from 'react-modal';
-import Iframe from 'react-iframe';
+import YouTube from 'react-youtube';
 
 import './TrailerWrapper.css';
 
@@ -49,11 +49,18 @@ class TrailerWrapper extends React.Component {
             }
         };
 
-        let trailerUrl;
+        const opts = {
+            height: '390',
+            width: '640',
+            playerVars: {
+                autoplay: 1
+            }
+        };
+        let trailerKey;
         if (this.props.trailers && this.props.trailers.length > 1) {
-            trailerUrl = 'http://www.youtube.com/embed/' + this.props.trailers[this.state.currentTrailerIndex].key + '?autoplay=1';
+            trailerKey = this.props.trailers[this.state.currentTrailerIndex].key;
         } else {
-            trailerUrl = '';
+            trailerKey = '';
         }
 
         return ( <Modal
@@ -61,12 +68,11 @@ class TrailerWrapper extends React.Component {
                 onRequestClose={this.props.onCloseModal}
                 style={customStyles}
                 contentLabel="Modal">
-                <Iframe url={trailerUrl}
-                        width="450px"
-                        height="450px"
-                        display="initial"
-                        position="relative"
-                        allowFullScreen/>
+                <YouTube
+                    videoId={trailerKey}
+                    opts={opts}
+                    onReady={this._onReady}
+                />
                 {(this.state.currentTrailerIndex - 1) >= 0 &&
                 <div className="arrow arrow-left" onClick={this.onClickLeftBtn}>&#60;</div>}
                 {(this.state.currentTrailerIndex + 1) < this.props.trailers.length &&
