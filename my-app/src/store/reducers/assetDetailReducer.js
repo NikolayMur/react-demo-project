@@ -1,6 +1,6 @@
 import {assetDetailDownloadActionTypes} from '../../Constants';
 
-const initialState = {};
+const initialState = [];
 
 export default function assetDetailReducer(state = initialState, action) {
 
@@ -9,7 +9,9 @@ export default function assetDetailReducer(state = initialState, action) {
             //to do smth
             return state;
         case assetDetailDownloadActionTypes.received:
-            return action.payload;
+            const newState = [ ...state ];
+            newState[action.payload.id] = action.payload;
+            return  newState;
         case assetDetailDownloadActionTypes.error:
             //to do smth
             return state;

@@ -23,6 +23,7 @@ export const downloadAssetsByCategory = (categoryId) => (dispatch) => {
 
 export const downloadAssetDetails = (assetId) => (dispatch) => {
 
+    console.log('downloadAssetDetails id: ', assetId);
     const url = 'http://online.smartsoft.ro:3333/api/vod/asset/' + assetId;
 
     requestHandler(url, dispatch, assetDetailDownloadActionTypes);
@@ -31,6 +32,7 @@ export const downloadAssetDetails = (assetId) => (dispatch) => {
 //Videos
 export const downloadVideosByAssetId = (assetId) => (dispatch) => {
 
+    console.log('downloadVideosByAssetId id: ', assetId);
     const url = 'http://online.smartsoft.ro:3333/api/vod/asset/' + assetId + '/videos';
 
     requestHandler(url, dispatch, trailersDownloadActionTypes);

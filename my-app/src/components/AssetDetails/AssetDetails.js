@@ -27,11 +27,17 @@ class AssetDetails extends React.Component {
     }
 
     componentDidMount() {
-        this.props.downloadDetails(this.props.params.id);
+        if((!this.props.assetDetails) || (Object.keys(this.props.assetDetails).length === 0)){
+            this.props.downloadDetails(this.props.params.id);
+        }
+
         this.props.downloadTrailerss(this.props.params.id);
     }
 
     render() {
+        if(Object.keys(this.props.assetDetails).length === 0){
+            return <div></div>
+        }
         const fullPosterPath = "https://image.tmdb.org/t/p/w300_and_h450_bestv2/" + this.props.assetDetails.poster_path;
         const fullBackdropPath = "https://image.tmdb.org/t/p/w1400_and_h450_bestv2" + this.props.assetDetails.backdrop_path;
         var detailPageContainerStyle = {
@@ -70,7 +76,7 @@ class AssetDetails extends React.Component {
 
 export default connect(
     (state, ownProps) => ({
-        assetDetails: state.assetDetailReducer,
+        assetDetails: state.assetDetailReducer[ownProps.params.id] ? state.assetDetailReducer[ownProps.params.id] : {},
         trailers: state.trailersReducer,
         ownProps
     }),
