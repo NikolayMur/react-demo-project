@@ -18,8 +18,6 @@
 
 .carousel-nav {
     cursor: pointer;
-    /*background-color: gray;*/
-
     border: none;
     background: rgba(0, 0, 0, 0.4);
     height: 76px;
@@ -37,12 +35,12 @@
     font-size: 24px;
 }
 
-.carousel-nav:hover {
+.carousel-nav-hover:hover {
     display: block;
     cursor: pointer;
 }
 
-.carousel-container:hover .carousel-nav {
+.carousel-container:hover .carousel-nav-hover {
     display: block;
 }
 
